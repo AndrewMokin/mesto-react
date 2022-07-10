@@ -17,6 +17,6 @@
 
 **Ссылка**
 
-Здесь можно посмотреть страницу: ["Mesto"](https://andrewmokin.github.io/mesto/)
+Здесь можно посмотреть страницу: ["Mesto"](https://andrewmokin.github.io/mesto-react/)
 
 Спасибо за просмотр!
