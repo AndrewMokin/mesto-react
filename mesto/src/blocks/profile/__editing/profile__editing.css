@@ -1,0 +1,27 @@
+.profile__editing {
+  margin: 0 0 24px 18px;
+  transition: opacity 0.2s linear;
+  align-self: flex-end;
+  background-color: transparent;
+  color: inherit;
+  background-image: url(../../../images/editing.svg);
+  background-size: cover;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.profile__editing:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__editing {
+    margin: 0 0 19px 10px;
+    width: 18px;
+    height: 18px;
+  }
+}

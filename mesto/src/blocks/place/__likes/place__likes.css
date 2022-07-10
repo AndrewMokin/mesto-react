@@ -1,0 +1,10 @@
+.place__likes {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: black;
+  margin:3px 0 0 0;
+  text-align: center;
+}

@@ -1,0 +1,20 @@
+.profile__image-editing {
+  position: absolute;
+  background-image: url(../../../images/edit_icon.svg);
+  background-color: rgba(0,0,0,0);
+  margin-top: -124px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 120px;
+  transition: opacity 0.2s linear;
+  transition: background-color 0.2s linear;
+  opacity: 0;
+}
+
+.profile__image-editing:hover {
+  opacity: 1;
+  background-color: rgba(0,0,0,.8);
+}
+
+

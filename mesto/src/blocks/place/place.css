@@ -1,0 +1,10 @@
+.place {
+  position: relative;
+  min-height: 361px;
+  max-width: 282px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  list-style-type: none;
+  cursor: pointer;
+}

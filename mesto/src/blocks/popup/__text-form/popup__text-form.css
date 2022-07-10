@@ -1,0 +1,29 @@
+.popup__text-form {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  width: 358px;
+  margin: 54px 0 0 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  padding: 0 0 13px 0;
+}
+
+.popup__text-form:last-of-type {
+  margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .popup__text-form {
+    width: 100%;
+    margin-top: 75px;
+  }
+}
+
+.popup__text-form.popup__error_border {
+  border-color: red;
+}
