@@ -5,7 +5,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import ImagePopup from "../ImagePopup/ImagePopup";
-import Api from "../../api/Api";
+import Api from "../../utils/Api";
 
 const api = new Api({
   address: "https://mesto.nomoreparties.co/v1/cohort-38",
