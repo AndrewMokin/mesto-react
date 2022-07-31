@@ -24,7 +24,7 @@ export default class Api {
       },
     }).then(this._checkResponse);
   }
-  addCard(data) {
+  addCard(item) {
     return fetch(`${this._address}/cards`, {
       method: "POST",
       headers: {
@@ -32,8 +32,8 @@ export default class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: data.name,
-        link: data.link,
+        name: item.name,
+        link: item.link,
       }),
     }).then(this._checkResponse);
   }
@@ -46,7 +46,7 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  changeAvatar(avatar) {
+  changeAvatar(item) {
     return fetch(`${this._address}/users/me/${"avatar"} `, {
       method: "PATCH",
       headers: {
@@ -54,11 +54,11 @@ export default class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        avatar: avatar,
+        avatar: item.avatar,
       }),
     }).then(this._checkResponse);
   }
-  newProfileInfo(item) {
+  setUserInfo(item) {
     return fetch(`${this._address}/users/me`, {
       method: "PATCH",
       headers: {
@@ -66,25 +66,29 @@ export default class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: item.profileName,
-        about: item.profileDescription,
+        name: item.name,
+        about: item.about,
       }),
     }).then(this._checkResponse);
   }
-  putLike(data) {
-    return fetch(`${this._address}/cards/${data._id}/likes`, {
-      method: "PUT",
-      headers: {
-        authorization: this._token,
-      },
-    }).then(this._checkResponse);
-  }
-  deleteLike(data) {
-    return fetch(`${this._address}/cards/${data._id}/likes`, {
-      method: "DELETE",
-      headers: {
-        authorization: this._token,
-      },
-    }).then(this._checkResponse);
+  changeLikeCardStatus(data, isLiked) {
+
+    if (isLiked) {
+      return fetch(`${this._address}/cards/${data._id}/likes`, {
+        method: "PUT",
+        headers: {
+          authorization: this._token,
+        },
+      }).then(this._checkResponse);
+    }
+    else {
+      return fetch(`${this._address}/cards/${data._id}/likes`, {
+        method: "DELETE",
+        headers: {
+          authorization: this._token,
+        },
+      }).then(this._checkResponse);
+    }
+
   }
 }

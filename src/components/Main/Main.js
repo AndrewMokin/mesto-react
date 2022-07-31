@@ -1,16 +1,19 @@
 import React from "react";
 import Card from "../Card/Card";
+import {CurrentUserContext} from "../contexts/CurrentUserContext.js"
 
 function Main({
   onEditProfile,
   onEditAvatar,
   onAddPlace,
-  avatar,
-  name,
-  about,
   cards,
   onCardClick,
+  onCardLike,
+  onCardDelete
 }) {
+
+  const currentUser = React.useContext(CurrentUserContext)
+
   return (
     <main>
       <section className="profile">
@@ -20,20 +23,20 @@ function Main({
           onClick={onEditAvatar}
         >
           <img
-            src={avatar}
+            src={currentUser.avatar}
             alt="изображение портфолио"
             className="profile__image"
           />
           <div className="profile__image-editing"></div>
         </button>
         <div className="profile__name-editing">
-          <h2 className="profile__name">{name}</h2>
+          <h2 className="profile__name">{currentUser.name}</h2>
           <button
             type="button"
             className="profile__editing"
             onClick={onEditProfile}
           ></button>
-          <p className="profile__description">{about}</p>
+          <p className="profile__description">{currentUser.about}</p>
         </div>
         <button
           type="button"
@@ -50,6 +53,8 @@ function Main({
             src={card.link}
             title={card.name}
             onCardClick={onCardClick}
+            onCardLike={onCardLike}
+            onCardDelete={onCardDelete}
           />
         ))}
       </ul>
