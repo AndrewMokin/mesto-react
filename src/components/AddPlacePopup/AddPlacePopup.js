@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
@@ -22,6 +22,12 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
     })
   }
 
+useEffect(()=>{
+  if (isOpen)
+    {setName('')
+    setLink('')}
+  },[isOpen])
+
   return (
   <PopupWithForm
     name="place"
@@ -41,6 +47,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         maxLength="30"
         required
         onChange={handleNameChange}
+        value={name}
       />
       <span id="name-error" className="popup__error"></span>
       <input
@@ -50,6 +57,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         className="popup__text-form popup__text-form_link link"
         required
         onChange={handleLinkChange}
+        value={link}
       />
       <span id="link-error" className="popup__error"></span>
     </fieldset>

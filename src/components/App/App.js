@@ -82,11 +82,8 @@ function App() {
   }
 
   useEffect(() => {
-    getUserInfo();
-  }, []);
-
-  useEffect(() => {
     getCards();
+    getUserInfo();
   }, []);
 
   const handleEditProfileClick = () => {
@@ -115,14 +112,12 @@ function App() {
       isAddPlacePopupOpen ||
       selectedCard
     ) {
-      function handleEsc(evt) {
-        if (evt.key === "Escape") {
+      function handleEsc(e) {
+        if (e.key === "Escape") {
           closeAllPopups();
         }
       }
-
       document.addEventListener("keydown", handleEsc);
-
       return () => {
         document.removeEventListener("keydown", handleEsc);
       };
@@ -138,6 +133,8 @@ function App() {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     api.changeLikeCardStatus(card, !isLiked).then((newCard) => {
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+    }).catch((err) => {
+      console.error(err);
     });
   }
 
